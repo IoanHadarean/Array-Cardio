@@ -73,27 +73,52 @@
             .map(boulevard => boulevard.innerHTML)
             .filter(string => string.includes('de'));
         console.log(text);
+        
+        
 
         // 7. sort Exercise
         // Sort the people alphabetically by last name
-
+        let sortedPeople = people.sort((a,b) => a[0] > b[0] ? -1: 1);
+        console.table(sortedPeople);
+        // or
+        // let sortedPeople = people.sort(function(a,b) {
+        //     const [aLast, aFirst] = a.split(',');
+        //     const [bLast, bFirst] = b.split(',');
+        //     return aLast > bLast ? 1: -1;
+        // });
+        // console.table(sortedPeople);
+            
 
 
         // 8. Reduce Exercise
         // Sum up the instances of each of these
         const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
-        let carsCount = data.filter(item => item.includes('car'))
-                             .reduce((total, item) => total + 1, 0);
-        console.log(carsCount);
-        let truckCount = data.filter(item => item.includes('truck'))
-                             .reduce((total, item) => total + 1, 0);
-        console.log(truckCount);
-        let bikeCount = data.filter(item => item.includes('bike'))
-                             .reduce((total, item) => total + 1, 0);
-        console.log(bikeCount);
-        let walkCount = data.filter(item => item.includes('walk'))
-                             .reduce((total, item) => total + 1, 0);
-        console.log(walkCount);
+        // let carsCount = data.filter(item => item.includes('car'))
+        //                      .reduce((total, item) => total + 1, 0);
+        // console.log(carsCount);
+        // let truckCount = data.filter(item => item.includes('truck'))
+        //                      .reduce((total, item) => total + 1, 0);
+        // console.log(truckCount);
+        // let bikeCount = data.filter(item => item.includes('bike'))
+        //                      .reduce((total, item) => total + 1, 0);
+        // console.log(bikeCount);
+        // let walkCount = data.filter(item => item.includes('walk'))
+        //                      .reduce((total, item) => total + 1, 0);
+        // console.log(walkCount);
+        // let vanCount = data.filter(item => item.includes('van'))
+        //                      .reduce((total, item) => total + 1, 0);
+        // console.log(vanCount);
+        // or
+        const transportation = data.reduce(function(total, item) {
+            // if the value of the object key does not exist, we initialise it with 0
+            if(!total[item]) {
+                total[item] = 0;
+            }
+            total[item]++;
+            console.log(total);
+            return total;
+        }, {});
+        console.log(transportation);
     </script>
 </body>
 
