@@ -62,11 +62,18 @@
     // delete the comment with the ID of 823423
     const index = comments.findIndex(comment => comment.id === 823423);
     console.log(index);
-    delete comments[index];
-    console.table(comments);
+    // delete comments[index];
+    // console.table(comments);
     // or
     // comments.splice(index, 1);
     // console.table(comments);
+    // or make a copy of the comments array and remove the comment with the ID 823423
+    const newComments = [
+         ...comments.slice(0, index), // gets the first element and skips the one with index
+         ...comments.slice(index + 1) // gets the comment after the one with index until the end of the array
+         ];
+    console.table(newComments);
+    
   </script>
 </body>
 </html>
